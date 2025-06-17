@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "414245804137",
+    "project_id": "abdullah-auvnet-assessment",
+    "storage_bucket": "abdullah-auvnet-assessment.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414245804137:android:a01cab3148987268d82af8",
+        "android_client_info": {
+          "package_name": "com.example.auvnet_internship_assessment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMU6xTXUcOV_jGeMq1nZ5xvZiTxtjZqRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
