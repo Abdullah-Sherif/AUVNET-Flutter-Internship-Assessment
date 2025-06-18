@@ -15,7 +15,11 @@ class HomeWrapper extends StatelessWidget {
       builder: (context, child, pageController) {
         final tabsRouter = AutoTabsRouter.of(context);
 
-        return Scaffold(body: SafeArea(child: child), bottomNavigationBar: CustomBottomNavigationBar(tabsRouter: tabsRouter));
+        return Scaffold(
+          backgroundColor: Color(0xFFFFFFFF),
+          body: SafeArea(child: child),
+          bottomNavigationBar: CustomBottomNavigationBar(tabsRouter: tabsRouter),
+        );
       },
     );
   }
