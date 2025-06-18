@@ -8,9 +8,9 @@ part of 'auvnet_user_entity.dart';
 
 _AuvnetUserEntity _$AuvnetUserEntityFromJson(Map<String, dynamic> json) =>
     _AuvnetUserEntity(
-      emial: json['emial'] as String,
+      email: json['email'] as String,
       uid: json['uid'] as String,
     );
 
 Map<String, dynamic> _$AuvnetUserEntityToJson(_AuvnetUserEntity instance) =>
-    <String, dynamic>{'emial': instance.emial, 'uid': instance.uid};
+    <String, dynamic>{'email': instance.email, 'uid': instance.uid};

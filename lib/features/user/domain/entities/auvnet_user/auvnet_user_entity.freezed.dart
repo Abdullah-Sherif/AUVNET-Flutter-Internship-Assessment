@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AuvnetUserEntity {
 
- String get emial; String get uid;
+ String get email; String get uid;
 /// Create a copy of AuvnetUserEntity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $AuvnetUserEntityCopyWith<AuvnetUserEntity> get copyWith => _$AuvnetUserEntityCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuvnetUserEntity&&(identical(other.emial, emial) || other.emial == emial)&&(identical(other.uid, uid) || other.uid == uid));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuvnetUserEntity&&(identical(other.email, email) || other.email == email)&&(identical(other.uid, uid) || other.uid == uid));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,emial,uid);
+int get hashCode => Object.hash(runtimeType,email,uid);
 
 @override
 String toString() {
-  return 'AuvnetUserEntity(emial: $emial, uid: $uid)';
+  return 'AuvnetUserEntity(email: $email, uid: $uid)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $AuvnetUserEntityCopyWith<$Res>  {
   factory $AuvnetUserEntityCopyWith(AuvnetUserEntity value, $Res Function(AuvnetUserEntity) _then) = _$AuvnetUserEntityCopyWithImpl;
 @useResult
 $Res call({
- String emial, String uid
+ String email, String uid
 });
 
 
@@ -66,9 +66,9 @@ class _$AuvnetUserEntityCopyWithImpl<$Res>
 
 /// Create a copy of AuvnetUserEntity
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? emial = null,Object? uid = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? uid = null,}) {
   return _then(_self.copyWith(
-emial: null == emial ? _self.emial : emial // ignore: cast_nullable_to_non_nullable
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -81,10 +81,10 @@ as String,
 @JsonSerializable()
 
 class _AuvnetUserEntity implements AuvnetUserEntity {
-   _AuvnetUserEntity({required this.emial, required this.uid});
+   _AuvnetUserEntity({required this.email, required this.uid});
   factory _AuvnetUserEntity.fromJson(Map<String, dynamic> json) => _$AuvnetUserEntityFromJson(json);
 
-@override final  String emial;
+@override final  String email;
 @override final  String uid;
 
 /// Create a copy of AuvnetUserEntity
@@ -100,16 +100,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuvnetUserEntity&&(identical(other.emial, emial) || other.emial == emial)&&(identical(other.uid, uid) || other.uid == uid));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuvnetUserEntity&&(identical(other.email, email) || other.email == email)&&(identical(other.uid, uid) || other.uid == uid));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,emial,uid);
+int get hashCode => Object.hash(runtimeType,email,uid);
 
 @override
 String toString() {
-  return 'AuvnetUserEntity(emial: $emial, uid: $uid)';
+  return 'AuvnetUserEntity(email: $email, uid: $uid)';
 }
 
 
@@ -120,7 +120,7 @@ abstract mixin class _$AuvnetUserEntityCopyWith<$Res> implements $AuvnetUserEnti
   factory _$AuvnetUserEntityCopyWith(_AuvnetUserEntity value, $Res Function(_AuvnetUserEntity) _then) = __$AuvnetUserEntityCopyWithImpl;
 @override @useResult
 $Res call({
- String emial, String uid
+ String email, String uid
 });
 
 
@@ -137,9 +137,9 @@ class __$AuvnetUserEntityCopyWithImpl<$Res>
 
 /// Create a copy of AuvnetUserEntity
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? emial = null,Object? uid = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? uid = null,}) {
   return _then(_AuvnetUserEntity(
-emial: null == emial ? _self.emial : emial // ignore: cast_nullable_to_non_nullable
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,
   ));
