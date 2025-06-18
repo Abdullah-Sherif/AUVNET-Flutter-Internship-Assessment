@@ -28,55 +28,58 @@ class LoginPage extends HookWidget {
         },
         child: BlocBuilder<LoginBloc, LoginBlocState>(
           builder: (context, state) {
-            return Column(
-              children: [
-                SizedBox(height: context.percentOfHeight(0.1)),
-                Center(child: Image.asset('assets/logo_circle.png')),
-                SizedBox(height: context.percentOfHeight(0.02)),
-                CustomTextInput(
-                  controller: emailController,
-                  leadingIcon: Icon(Icons.email_outlined, color: CustomColors.gray, size: 30),
-                  errorMessage: emailError.value,
-                  hintText: 'mail',
-                ),
-                SizedBox(height: context.percentOfHeight(0.02)),
-                CustomTextInput(
-                  controller: passwordController,
-                  leadingIcon: Icon(Icons.lock_outline, color: CustomColors.gray, size: 30),
-                  isPassword: true,
-                  errorMessage: passwordError.value,
-                  hintText: 'password',
-                ),
-                SizedBox(height: context.percentOfHeight(0.02)),
-                CustomTextButton(
-                  text: 'Log in',
-                  onPressed: () {
-                    emailError.value = null;
-                    passwordError.value = null;
-                    if (emailController.text.isEmpty) {
-                      emailError.value = 'Email is required';
-                    }
-                    if (passwordController.text.isEmpty) {
-                      passwordError.value = 'Password is required';
-                    }
+            return SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Center(child: Image.asset('assets/logo_circle.png')),
+                    SizedBox(height: context.percentOfHeight(0.02)),
+                    CustomTextInput(
+                      controller: emailController,
+                      leadingIcon: Icon(Icons.email_outlined, color: CustomColors.gray, size: 30),
+                      errorMessage: emailError.value,
+                      hintText: 'mail',
+                    ),
+                    SizedBox(height: context.percentOfHeight(0.02)),
+                    CustomTextInput(
+                      controller: passwordController,
+                      leadingIcon: Icon(Icons.lock_outline, color: CustomColors.gray, size: 30),
+                      isPassword: true,
+                      errorMessage: passwordError.value,
+                      hintText: 'password',
+                    ),
+                    SizedBox(height: context.percentOfHeight(0.02)),
+                    CustomTextButton(
+                      text: 'Log in',
+                      onPressed: () {
+                        emailError.value = null;
+                        passwordError.value = null;
+                        if (emailController.text.isEmpty) {
+                          emailError.value = 'Email is required';
+                        }
+                        if (passwordController.text.isEmpty) {
+                          passwordError.value = 'Password is required';
+                        }
 
-                    if (emailError.value != null || passwordError.value != null) {
-                      return;
-                    }
+                        if (emailError.value != null || passwordError.value != null) {
+                          return;
+                        }
 
-                    context.read<LoginBloc>().add(LoginEvent.emailChanged(emailController.text));
-                    context.read<LoginBloc>().add(LoginEvent.passwordChanged(passwordController.text));
-                    context.read<LoginBloc>().add(LoginEvent.submitted());
-                  },
+                        context.read<LoginBloc>().add(LoginEvent.emailChanged(emailController.text));
+                        context.read<LoginBloc>().add(LoginEvent.passwordChanged(passwordController.text));
+                        context.read<LoginBloc>().add(LoginEvent.submitted());
+                      },
+                    ),
+                    SizedBox(height: context.percentOfHeight(0.01)),
+                    TextButton(
+                      onPressed: () {
+                        context.router.replaceAll([const SignupRouteLoader()]);
+                      },
+                      child: const Text('Create an account', style: TextStyle(color: CustomColors.linkBlue, fontSize: 16)),
+                    ),
+                  ],
                 ),
-                SizedBox(height: context.percentOfHeight(0.01)),
-                TextButton(
-                  onPressed: () {
-                    context.router.replaceAll([const SignupRouteLoader()]);
-                  },
-                  child: const Text('Create an account', style: TextStyle(color: CustomColors.linkBlue, fontSize: 16)),
-                ),
-              ],
+              ),
             );
           },
         ),

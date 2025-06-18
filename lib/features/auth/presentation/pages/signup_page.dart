@@ -30,75 +30,78 @@ class SignUpPage extends HookWidget {
         },
         child: BlocBuilder<SignUpBloc, SignUpBlocState>(
           builder: (context, state) {
-            return Column(
-              children: [
-                SizedBox(height: context.percentOfHeight(0.1)),
-                Center(child: Image.asset('assets/logo_circle.png')),
-                SizedBox(height: context.percentOfHeight(0.02)),
-                CustomTextInput(
-                  controller: emailController,
-                  leadingIcon: Icon(Icons.email_outlined, color: CustomColors.gray, size: 30),
-                  errorMessage: emailError.value,
-                  hintText: 'mail',
-                ),
-                SizedBox(height: context.percentOfHeight(0.02)),
-                CustomTextInput(
-                  controller: firstPasswordController,
-                  leadingIcon: Icon(Icons.lock_outline, color: CustomColors.gray, size: 30),
-                  isPassword: true,
-                  errorMessage: firstPasswordError.value,
-                  hintText: 'password',
-                ),
-                SizedBox(height: context.percentOfHeight(0.02)),
-                CustomTextInput(
-                  controller: secondPasswordController,
-                  leadingIcon: Icon(Icons.lock_outline, color: CustomColors.gray, size: 30),
-                  isPassword: true,
-                  errorMessage: secondPasswordError.value,
-                  hintText: 'confirm password',
-                ),
-                SizedBox(height: context.percentOfHeight(0.02)),
-                CustomTextButton(
-                  text: 'Sign up',
-                  onPressed: () {
-                    emailError.value = null;
-                    firstPasswordError.value = null;
-                    secondPasswordError.value = null;
-                    if (emailController.text.isEmpty) {
-                      emailError.value = 'Email is required';
-                    }
-                    if (firstPasswordController.text.isEmpty) {
-                      firstPasswordError.value = 'Password is required';
-                    }
-                    if (secondPasswordController.text.isEmpty) {
-                      secondPasswordError.value = 'Confirm Password is required';
-                    }
+            return SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Center(child: Image.asset('assets/logo_circle.png')),
+                    SizedBox(height: context.percentOfHeight(0.02)),
+                    CustomTextInput(
+                      controller: emailController,
+                      leadingIcon: Icon(Icons.email_outlined, color: CustomColors.gray, size: 30),
+                      errorMessage: emailError.value,
+                      hintText: 'mail',
+                    ),
+                    SizedBox(height: context.percentOfHeight(0.02)),
+                    CustomTextInput(
+                      controller: firstPasswordController,
+                      leadingIcon: Icon(Icons.lock_outline, color: CustomColors.gray, size: 30),
+                      isPassword: true,
+                      errorMessage: firstPasswordError.value,
+                      hintText: 'password',
+                    ),
+                    SizedBox(height: context.percentOfHeight(0.02)),
+                    CustomTextInput(
+                      controller: secondPasswordController,
+                      leadingIcon: Icon(Icons.lock_outline, color: CustomColors.gray, size: 30),
+                      isPassword: true,
+                      errorMessage: secondPasswordError.value,
+                      hintText: 'confirm password',
+                    ),
+                    SizedBox(height: context.percentOfHeight(0.02)),
+                    CustomTextButton(
+                      text: 'Sign up',
+                      onPressed: () {
+                        emailError.value = null;
+                        firstPasswordError.value = null;
+                        secondPasswordError.value = null;
+                        if (emailController.text.isEmpty) {
+                          emailError.value = 'Email is required';
+                        }
+                        if (firstPasswordController.text.isEmpty) {
+                          firstPasswordError.value = 'Password is required';
+                        }
+                        if (secondPasswordController.text.isEmpty) {
+                          secondPasswordError.value = 'Confirm Password is required';
+                        }
 
-                    if (firstPasswordController.text != secondPasswordController.text) {
-                      secondPasswordError.value = 'Passwords do not match';
-                    }
+                        if (firstPasswordController.text != secondPasswordController.text) {
+                          secondPasswordError.value = 'Passwords do not match';
+                        }
 
-                    if (emailError.value != null ||
-                        firstPasswordError.value != null ||
-                        secondPasswordError.value != null ||
-                        firstPasswordController.text != secondPasswordController.text) {
-                      return;
-                    }
+                        if (emailError.value != null ||
+                            firstPasswordError.value != null ||
+                            secondPasswordError.value != null ||
+                            firstPasswordController.text != secondPasswordController.text) {
+                          return;
+                        }
 
-                    context.read<SignUpBloc>().add(SignUpEvent.emailChanged(emailController.text));
-                    context.read<SignUpBloc>().add(SignUpEvent.passwordChanged(firstPasswordController.text));
-                    context.read<SignUpBloc>().add(SignUpEvent.confirmPasswordChanged(secondPasswordController.text));
-                    context.read<SignUpBloc>().add(const SignUpEvent.signUpSubmitted());
-                  },
+                        context.read<SignUpBloc>().add(SignUpEvent.emailChanged(emailController.text));
+                        context.read<SignUpBloc>().add(SignUpEvent.passwordChanged(firstPasswordController.text));
+                        context.read<SignUpBloc>().add(SignUpEvent.confirmPasswordChanged(secondPasswordController.text));
+                        context.read<SignUpBloc>().add(const SignUpEvent.signUpSubmitted());
+                      },
+                    ),
+                    SizedBox(height: context.percentOfHeight(0.01)),
+                    TextButton(
+                      onPressed: () {
+                        context.router.replaceAll([const LoginRouteLoader()]);
+                      },
+                      child: const Text('Already have an account?', style: TextStyle(color: CustomColors.linkBlue, fontSize: 16)),
+                    ),
+                  ],
                 ),
-                SizedBox(height: context.percentOfHeight(0.01)),
-                TextButton(
-                  onPressed: () {
-                    context.router.replaceAll([const LoginRouteLoader()]);
-                  },
-                  child: const Text('Already have an account?', style: TextStyle(color: CustomColors.linkBlue, fontSize: 16)),
-                ),
-              ],
+              ),
             );
           },
         ),
