@@ -1,17 +1,17 @@
+import 'package:auvnet_internship_assessment/core/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sima/core/barrel.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.backgroundColor,
+    this.backgroundColor = CustomColors.mainPurple,
     this.textColor,
     this.width = 380,
-    this.height = 55,
-    this.borderRadius = 7,
+    this.height = 65,
+    this.borderRadius = 11,
     this.borderColor,
     this.borderWidth,
     this.isLoading = false,
@@ -52,54 +52,38 @@ class CustomTextButton extends StatelessWidget {
       child: TextButton(
         onPressed: isDisabled || isLoading ? () {} : onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(backgroundColor),
+          backgroundColor: WidgetStateProperty.all(backgroundColor),
           splashFactory: isDisabled ? NoSplash.splashFactory : null,
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
-              side: BorderSide(
-                color: borderColor ?? Colors.transparent,
-                width: borderWidth ?? 0,
-              ),
+              side: BorderSide(color: borderColor ?? Colors.transparent, width: borderWidth ?? 0),
             ),
           ),
         ),
-        child: isLoading
-            ? SizedBox.square(
-                dimension: 20,
-                child: CircularProgressIndicator(
-                  color: context.theme.colorScheme.background,
-                  strokeWidth: 3,
-                ),
-              )
-            : Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: horizontalPadding ?? 0,
-                  vertical: verticalPadding ?? 0,
-                ),
-                child: Column(
-                  mainAxisAlignment: svgPath != null ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center,
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        text,
-                        style: TextStyle(
-                          color: textColor ?? context.theme.colorScheme.background,
-                          fontSize: textSize ?? 20,
-                          wordSpacing: wordSpacing,
+        child:
+            isLoading
+                ? SizedBox.square(dimension: 20, child: CircularProgressIndicator(strokeWidth: 3))
+                : Padding(
+                  padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0, vertical: verticalPadding ?? 0),
+                  child: Column(
+                    mainAxisAlignment: svgPath != null ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center,
+                    children: [
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          text,
+                          style: TextStyle(
+                            color: textColor ?? context.theme.colorScheme.surface,
+                            fontSize: textSize ?? 20,
+                            wordSpacing: wordSpacing,
+                          ),
                         ),
                       ),
-                    ),
-                    if (svgPath != null)
-                      SvgPicture.asset(
-                        svgPath!,
-                        width: svgWidth ?? 20,
-                        height: svgWidth ?? 20,
-                      ),
-                  ],
+                      if (svgPath != null) SvgPicture.asset(svgPath!, width: svgWidth ?? 20, height: svgWidth ?? 20),
+                    ],
+                  ),
                 ),
-              ),
       ),
     );
   }

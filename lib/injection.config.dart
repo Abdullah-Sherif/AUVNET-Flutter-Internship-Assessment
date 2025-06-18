@@ -15,7 +15,11 @@ import 'package:auvnet_internship_assessment/features/auth/presentation/states/a
     as _i308;
 import 'package:auvnet_internship_assessment/features/auth/presentation/states/login_state/login_bloc.dart'
     as _i1064;
+import 'package:auvnet_internship_assessment/features/auth/presentation/states/signup_state/signup_bloc.dart'
+    as _i617;
 import 'package:auvnet_internship_assessment/features/barrel.dart' as _i457;
+import 'package:auvnet_internship_assessment/features/onboarding/presentation/states/onboarding_state/onboarding_bloc.dart'
+    as _i43;
 import 'package:auvnet_internship_assessment/features/user/data/repositories/user_repository.dart'
     as _i274;
 import 'package:auvnet_internship_assessment/features/user/presentation/states/user_state/user_bloc.dart'
@@ -30,6 +34,7 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    gh.factory<_i43.OnboardingBloc>(() => _i43.OnboardingBloc());
     gh.lazySingleton<_i976.AuthRepository>(() => _i976.AuthRepository());
     gh.lazySingleton<_i274.UserRepository>(() => _i274.UserRepository());
     gh.factory<_i232.UserBloc>(
@@ -43,6 +48,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1064.LoginBloc>(
       () => _i1064.LoginBloc(gh<_i457.AuthRepository>()),
+    );
+    gh.factory<_i617.SignUpBloc>(
+      () => _i617.SignUpBloc(gh<_i457.AuthRepository>()),
     );
     return this;
   }

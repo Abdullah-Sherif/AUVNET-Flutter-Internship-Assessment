@@ -141,6 +141,38 @@ String toString() {
 
 
 /// @nodoc
+
+
+class AuthOnboardingCompleted implements AuthEvent {
+  const AuthOnboardingCompleted();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthOnboardingCompleted);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AuthEvent.onboardingCompleted()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
 mixin _$AuthBlocState {
 
 
@@ -238,33 +270,67 @@ String toString() {
 
 
 class AuthUnauthenticated implements AuthBlocState {
-  const AuthUnauthenticated();
+  const AuthUnauthenticated({this.onboarded = false});
   
 
+@JsonKey() final  bool onboarded;
 
-
+/// Create a copy of AuthBlocState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AuthUnauthenticatedCopyWith<AuthUnauthenticated> get copyWith => _$AuthUnauthenticatedCopyWithImpl<AuthUnauthenticated>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthUnauthenticated);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthUnauthenticated&&(identical(other.onboarded, onboarded) || other.onboarded == onboarded));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,onboarded);
 
 @override
 String toString() {
-  return 'AuthBlocState.unauthenticated()';
+  return 'AuthBlocState.unauthenticated(onboarded: $onboarded)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class $AuthUnauthenticatedCopyWith<$Res> implements $AuthBlocStateCopyWith<$Res> {
+  factory $AuthUnauthenticatedCopyWith(AuthUnauthenticated value, $Res Function(AuthUnauthenticated) _then) = _$AuthUnauthenticatedCopyWithImpl;
+@useResult
+$Res call({
+ bool onboarded
+});
 
 
+
+
+}
+/// @nodoc
+class _$AuthUnauthenticatedCopyWithImpl<$Res>
+    implements $AuthUnauthenticatedCopyWith<$Res> {
+  _$AuthUnauthenticatedCopyWithImpl(this._self, this._then);
+
+  final AuthUnauthenticated _self;
+  final $Res Function(AuthUnauthenticated) _then;
+
+/// Create a copy of AuthBlocState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? onboarded = null,}) {
+  return _then(AuthUnauthenticated(
+onboarded: null == onboarded ? _self.onboarded : onboarded // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
 
 /// @nodoc
 

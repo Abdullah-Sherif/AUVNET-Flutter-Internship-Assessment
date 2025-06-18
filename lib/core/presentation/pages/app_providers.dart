@@ -14,6 +14,7 @@ class AppProviders extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => getIt<AuthBloc>(), lazy: false),
         BlocProvider(create: (context) => getIt<UserBloc>(), lazy: false),
+        BlocProvider(create: (context) => getIt<OnboardingBloc>(), lazy: false),
       ],
       child: child,
     );

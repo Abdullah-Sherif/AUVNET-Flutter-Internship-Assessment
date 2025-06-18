@@ -16,8 +16,13 @@ class AppListeners extends StatelessWidget {
         BlocListener<AuthBloc, AuthBlocState>(
           listener: (context, state) async {
             final newRoute = switch (state) {
-              AuthAuthenticated() => const SplashRoute(),
-              AuthUnauthenticated() => const OnboardingRoute(),
+              AuthAuthenticated() => const HomeWrapperRoute(),
+              AuthUnauthenticated() => () {
+                if (state.onboarded) {
+                  return const LoginRouteLoader();
+                }
+                return const OnboardingRoute();
+              }(),
               AuthInitial() => const SplashRoute(),
               AuthUnknown() => const SplashRoute(),
               _ => const SplashRoute(),
@@ -26,6 +31,13 @@ class AppListeners extends StatelessWidget {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               router.pushAndPopUntil(newRoute, predicate: (route) => route.isFirst);
             });
+          },
+        ),
+        BlocListener<OnboardingBloc, OnboardingState>(
+          listener: (context, state) {
+            if (state is OnboardingCompleted) {
+              context.read<AuthBloc>().add(const AuthEvent.onboardingCompleted());
+            }
           },
         ),
       ],
