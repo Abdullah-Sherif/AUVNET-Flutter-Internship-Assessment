@@ -11,6 +11,54 @@
 part of 'router.dart';
 
 /// generated route for
+/// [CartPage]
+class CartRoute extends PageRouteInfo<void> {
+  const CartRoute({List<PageRouteInfo>? children})
+    : super(CartRoute.name, initialChildren: children);
+
+  static const String name = 'CartRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CartPage();
+    },
+  );
+}
+
+/// generated route for
+/// [CategoriesPage]
+class CategoriesRoute extends PageRouteInfo<void> {
+  const CategoriesRoute({List<PageRouteInfo>? children})
+    : super(CategoriesRoute.name, initialChildren: children);
+
+  static const String name = 'CategoriesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CategoriesPage();
+    },
+  );
+}
+
+/// generated route for
+/// [DeliverPage]
+class DeliverRoute extends PageRouteInfo<void> {
+  const DeliverRoute({List<PageRouteInfo>? children})
+    : super(DeliverRoute.name, initialChildren: children);
+
+  static const String name = 'DeliverRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DeliverPage();
+    },
+  );
+}
+
+/// generated route for
 /// [HomeWrapper]
 class HomeWrapperRoute extends PageRouteInfo<void> {
   const HomeWrapperRoute({List<PageRouteInfo>? children})
@@ -70,6 +118,22 @@ class OnboardingRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const OnboardingPage();
+    },
+  );
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+    : super(ProfileRoute.name, initialChildren: children);
+
+  static const String name = 'ProfileRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfilePage();
     },
   );
 }

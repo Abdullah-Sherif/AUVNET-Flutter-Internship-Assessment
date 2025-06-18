@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class HomeWrapper extends StatelessWidget {
   const HomeWrapper({super.key});
 
-  final List<PageRouteInfo<dynamic>> routes = const [MainRoute()];
+  final List<PageRouteInfo<dynamic>> routes = const [MainRoute(), CategoriesRoute(), DeliverRoute(), CartRoute(), ProfileRoute()];
 
   @override
   Widget build(BuildContext context) {

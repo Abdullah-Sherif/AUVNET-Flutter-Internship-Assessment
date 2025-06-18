@@ -2,15 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class CategoriesPage extends StatelessWidget {
+  const CategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('Main Page'),
-      ],
-    );
+    return Scaffold(body: Center(child: Text('Categories Page')));
   }
 }
