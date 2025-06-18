@@ -36,6 +36,9 @@ dependencies:
   http: ^1.4.0
   internet_connection_checker: ^3.0.1
 
+  # UI
+  flutter_svg: ^2.2.0
+
 
 dev_dependencies:
   flutter_test:
