@@ -6,12 +6,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'user_event.dart';
-part 'user_state.dart';
+part 'user_bloc_state.dart';
 part 'user_bloc.freezed.dart';
 
 @injectable
-class UserBloc extends Bloc<UserEvent, UserState> {
-  UserBloc(this._userRepository) : super(UserState()) {
+class UserBloc extends Bloc<UserEvent, UserBlocState> {
+  UserBloc(this._userRepository) : super(UserBlocState()) {
     _userSubscription = _userRepository.onUserChanged.listen((user) {
       if (!isClosed && user != null) {
         add(UserEvent.userChanged(user: user));
@@ -32,16 +32,16 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     return super.close();
   }
 
-  void _onUserSet(UserSet event, Emitter<UserState> emit) {
+  void _onUserSet(UserSet event, Emitter<UserBlocState> emit) {
     emit(state.copyWith(user: event.user));
   }
 
-  void _onUserUnauthenticated(UserUnauthenticated event, Emitter<UserState> emit) {
+  void _onUserUnauthenticated(UserUnauthenticated event, Emitter<UserBlocState> emit) {
     _userRepository.onUnauthenticated();
     emit(state.copyWith(user: null));
   }
 
-  void _onUserChanged(_UserChanged event, Emitter<UserState> emit) {
+  void _onUserChanged(_UserChanged event, Emitter<UserBlocState> emit) {
     emit(state.copyWith(user: event.user));
   }
 }

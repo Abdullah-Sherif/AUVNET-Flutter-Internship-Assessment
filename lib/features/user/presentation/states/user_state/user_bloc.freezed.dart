@@ -225,20 +225,20 @@ $AuvnetUserEntityCopyWith<$Res> get user {
 }
 
 /// @nodoc
-mixin _$UserState {
+mixin _$UserBlocState {
 
  AuvnetUserEntity? get user;
-/// Create a copy of UserState
+/// Create a copy of UserBlocState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UserStateCopyWith<UserState> get copyWith => _$UserStateCopyWithImpl<UserState>(this as UserState, _$identity);
+$UserBlocStateCopyWith<UserBlocState> get copyWith => _$UserBlocStateCopyWithImpl<UserBlocState>(this as UserBlocState, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserState&&(identical(other.user, user) || other.user == user));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserBlocState&&(identical(other.user, user) || other.user == user));
 }
 
 
@@ -247,15 +247,15 @@ int get hashCode => Object.hash(runtimeType,user);
 
 @override
 String toString() {
-  return 'UserState(user: $user)';
+  return 'UserBlocState(user: $user)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $UserStateCopyWith<$Res>  {
-  factory $UserStateCopyWith(UserState value, $Res Function(UserState) _then) = _$UserStateCopyWithImpl;
+abstract mixin class $UserBlocStateCopyWith<$Res>  {
+  factory $UserBlocStateCopyWith(UserBlocState value, $Res Function(UserBlocState) _then) = _$UserBlocStateCopyWithImpl;
 @useResult
 $Res call({
  AuvnetUserEntity? user
@@ -266,14 +266,14 @@ $AuvnetUserEntityCopyWith<$Res>? get user;
 
 }
 /// @nodoc
-class _$UserStateCopyWithImpl<$Res>
-    implements $UserStateCopyWith<$Res> {
-  _$UserStateCopyWithImpl(this._self, this._then);
+class _$UserBlocStateCopyWithImpl<$Res>
+    implements $UserBlocStateCopyWith<$Res> {
+  _$UserBlocStateCopyWithImpl(this._self, this._then);
 
-  final UserState _self;
-  final $Res Function(UserState) _then;
+  final UserBlocState _self;
+  final $Res Function(UserBlocState) _then;
 
-/// Create a copy of UserState
+/// Create a copy of UserBlocState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? user = freezed,}) {
   return _then(_self.copyWith(
@@ -281,7 +281,7 @@ user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullab
 as AuvnetUserEntity?,
   ));
 }
-/// Create a copy of UserState
+/// Create a copy of UserBlocState
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -300,23 +300,23 @@ $AuvnetUserEntityCopyWith<$Res>? get user {
 /// @nodoc
 
 
-class _UserState implements UserState {
-   _UserState({this.user = null});
+class _UserBlocState implements UserBlocState {
+   _UserBlocState({this.user = null});
   
 
 @override@JsonKey() final  AuvnetUserEntity? user;
 
-/// Create a copy of UserState
+/// Create a copy of UserBlocState
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$UserStateCopyWith<_UserState> get copyWith => __$UserStateCopyWithImpl<_UserState>(this, _$identity);
+_$UserBlocStateCopyWith<_UserBlocState> get copyWith => __$UserBlocStateCopyWithImpl<_UserBlocState>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserState&&(identical(other.user, user) || other.user == user));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserBlocState&&(identical(other.user, user) || other.user == user));
 }
 
 
@@ -325,15 +325,15 @@ int get hashCode => Object.hash(runtimeType,user);
 
 @override
 String toString() {
-  return 'UserState(user: $user)';
+  return 'UserBlocState(user: $user)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
-  factory _$UserStateCopyWith(_UserState value, $Res Function(_UserState) _then) = __$UserStateCopyWithImpl;
+abstract mixin class _$UserBlocStateCopyWith<$Res> implements $UserBlocStateCopyWith<$Res> {
+  factory _$UserBlocStateCopyWith(_UserBlocState value, $Res Function(_UserBlocState) _then) = __$UserBlocStateCopyWithImpl;
 @override @useResult
 $Res call({
  AuvnetUserEntity? user
@@ -344,23 +344,23 @@ $Res call({
 
 }
 /// @nodoc
-class __$UserStateCopyWithImpl<$Res>
-    implements _$UserStateCopyWith<$Res> {
-  __$UserStateCopyWithImpl(this._self, this._then);
+class __$UserBlocStateCopyWithImpl<$Res>
+    implements _$UserBlocStateCopyWith<$Res> {
+  __$UserBlocStateCopyWithImpl(this._self, this._then);
 
-  final _UserState _self;
-  final $Res Function(_UserState) _then;
+  final _UserBlocState _self;
+  final $Res Function(_UserBlocState) _then;
 
-/// Create a copy of UserState
+/// Create a copy of UserBlocState
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? user = freezed,}) {
-  return _then(_UserState(
+  return _then(_UserBlocState(
 user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as AuvnetUserEntity?,
   ));
 }
 
-/// Create a copy of UserState
+/// Create a copy of UserBlocState
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
