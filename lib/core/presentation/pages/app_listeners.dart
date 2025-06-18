@@ -17,7 +17,13 @@ class AppListeners extends StatelessWidget {
           listener: (context, state) async {
             final newRoute = switch (state) {
               AuthAuthenticated() => const SplashRoute(),
-              AuthUnauthenticated() => const OnboardingRoute(),
+              AuthUnauthenticated() => () {
+                final onboardingState = context.read<OnboardingBloc>().state;
+                if (onboardingState is OnboardingCompleted) {
+                  return const OnboardingRoute();
+                }
+                return const OnboardingRoute();
+              }(),
               AuthInitial() => const SplashRoute(),
               AuthUnknown() => const SplashRoute(),
               _ => const SplashRoute(),
