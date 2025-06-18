@@ -4,4 +4,5 @@ part of 'auth_bloc.dart';
 abstract class AuthEvent with _$AuthEvent {
   const factory AuthEvent.userChanged(User? user) = _UserChanged;
   const factory AuthEvent.signOutRequested() = SignOutRequested;
+  const factory AuthEvent.onboardingCompleted() = AuthOnboardingCompleted;
 }

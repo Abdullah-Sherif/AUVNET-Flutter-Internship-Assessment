@@ -16,6 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthBlocState> {
   AuthBloc(this._authRepository, this._userRepository) : super(AuthBlocState.initial()) {
     on<_UserChanged>(_onUserChanged);
     on<SignOutRequested>(_onSignOutRequested);
+    on<AuthOnboardingCompleted>(_onboardingCompleted);
 
     _userSubscription = _authRepository.onUserChanged.listen((user) {
       add(_UserChanged(user));
@@ -42,14 +43,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthBlocState> {
         emit(const AuthBlocState.unknown());
       }
     } else {
-      emit(const AuthBlocState.unauthenticated());
+      emit(const AuthBlocState.unauthenticated(onboarded: false));
     }
   }
 
   Future<void> _onSignOutRequested(SignOutRequested event, Emitter<AuthBlocState> emit) async {
     final result = await _authRepository.signOut();
     if (result is Success) {
-      emit(const AuthBlocState.unauthenticated());
+      emit(const AuthBlocState.unauthenticated(onboarded: true));
     }
+  }
+
+  void _onboardingCompleted(AuthOnboardingCompleted event, Emitter<AuthBlocState> emit) {
+    emit(const AuthBlocState.unauthenticated(onboarded: true));
   }
 }
