@@ -1,7 +1,7 @@
 part of 'auth_bloc.dart';
 
 @freezed
-class AuthBlocState with _$AuthBlocState{
+class AuthBlocState with _$AuthBlocState {
   const factory AuthBlocState.initial() = AuthInitial;
   const factory AuthBlocState.authenticated() = AuthAuthenticated;
   const factory AuthBlocState.unauthenticated() = AuthUnauthenticated;

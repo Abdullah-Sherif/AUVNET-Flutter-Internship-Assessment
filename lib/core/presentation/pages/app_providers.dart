@@ -10,6 +10,12 @@ class AppProviders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [BlocProvider(create: (context) => getIt<UserBloc>(), lazy: false)], child: child);
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<AuthBloc>(), lazy: false),
+        BlocProvider(create: (context) => getIt<UserBloc>(), lazy: false),
+      ],
+      child: child,
+    );
   }
 }
