@@ -39,6 +39,7 @@ dependencies:
   # UI
   flutter_svg: ^2.2.0
   flutter_native_splash: ^2.4.6
+  vector_graphics: ^1.1.19
 
 
 dev_dependencies:
