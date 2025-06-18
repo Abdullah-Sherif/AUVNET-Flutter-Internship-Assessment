@@ -17,14 +17,14 @@ class AppListeners extends StatelessWidget {
           listener: (context, state) async {
             final newRoute = switch (state) {
               AuthAuthenticated() => const SplashRoute(),
-              AuthUnauthenticated() => const SplashRoute(),
+              AuthUnauthenticated() => const OnboardingRoute(),
               AuthInitial() => const SplashRoute(),
               AuthUnknown() => const SplashRoute(),
               _ => const SplashRoute(),
             };
 
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              context.pushAndPopUntilFirst(newRoute);
+              router.pushAndPopUntil(newRoute, predicate: (route) => route.isFirst);
             });
           },
         ),

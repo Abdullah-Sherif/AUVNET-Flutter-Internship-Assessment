@@ -11,6 +11,22 @@
 part of 'router.dart';
 
 /// generated route for
+/// [OnboardingPage]
+class OnboardingRoute extends PageRouteInfo<void> {
+  const OnboardingRoute({List<PageRouteInfo>? children})
+    : super(OnboardingRoute.name, initialChildren: children);
+
+  static const String name = 'OnboardingRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const OnboardingPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SplashScreen]
 class SplashRoute extends PageRouteInfo<void> {
   const SplashRoute({List<PageRouteInfo>? children})

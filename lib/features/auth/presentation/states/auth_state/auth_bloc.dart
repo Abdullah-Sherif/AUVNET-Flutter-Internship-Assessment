@@ -5,11 +5,13 @@ import 'package:auvnet_internship_assessment/features/barrel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 part 'auth_event.dart';
 part 'auth_bloc_state.dart';
 part 'auth_bloc.freezed.dart';
 
+@injectable
 class AuthBloc extends Bloc<AuthEvent, AuthBlocState> {
   AuthBloc(this._authRepository, this._userRepository) : super(AuthBlocState.initial()) {
     on<_UserChanged>(_onUserChanged);

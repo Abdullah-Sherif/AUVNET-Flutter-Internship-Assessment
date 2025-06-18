@@ -2,7 +2,9 @@ import 'package:auvnet_internship_assessment/core/barrel.dart';
 import 'package:auvnet_internship_assessment/features/barrel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
 class AuthRepository {
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
