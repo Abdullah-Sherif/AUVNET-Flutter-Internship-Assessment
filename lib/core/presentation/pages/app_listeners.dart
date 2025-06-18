@@ -16,7 +16,7 @@ class AppListeners extends StatelessWidget {
         BlocListener<AuthBloc, AuthBlocState>(
           listener: (context, state) async {
             final newRoute = switch (state) {
-              AuthAuthenticated() => const SplashRoute(),
+              AuthAuthenticated() => const HomeWrapperRoute(),
               AuthUnauthenticated() => () {
                 if (state.onboarded) {
                   return const LoginRouteLoader();

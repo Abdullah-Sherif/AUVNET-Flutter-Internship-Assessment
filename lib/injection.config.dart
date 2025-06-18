@@ -15,6 +15,8 @@ import 'package:auvnet_internship_assessment/features/auth/presentation/states/a
     as _i308;
 import 'package:auvnet_internship_assessment/features/auth/presentation/states/login_state/login_bloc.dart'
     as _i1064;
+import 'package:auvnet_internship_assessment/features/auth/presentation/states/signup_state/signup_bloc.dart'
+    as _i617;
 import 'package:auvnet_internship_assessment/features/barrel.dart' as _i457;
 import 'package:auvnet_internship_assessment/features/onboarding/presentation/states/onboarding_state/onboarding_bloc.dart'
     as _i43;
@@ -46,6 +48,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1064.LoginBloc>(
       () => _i1064.LoginBloc(gh<_i457.AuthRepository>()),
+    );
+    gh.factory<_i617.SignUpBloc>(
+      () => _i617.SignUpBloc(gh<_i457.AuthRepository>()),
     );
     return this;
   }

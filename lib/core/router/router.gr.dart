@@ -11,6 +11,22 @@
 part of 'router.dart';
 
 /// generated route for
+/// [HomeWrapper]
+class HomeWrapperRoute extends PageRouteInfo<void> {
+  const HomeWrapperRoute({List<PageRouteInfo>? children})
+    : super(HomeWrapperRoute.name, initialChildren: children);
+
+  static const String name = 'HomeWrapperRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HomeWrapper();
+    },
+  );
+}
+
+/// generated route for
 /// [LoginPageLoader]
 class LoginRouteLoader extends PageRouteInfo<void> {
   const LoginRouteLoader({List<PageRouteInfo>? children})
@@ -38,6 +54,22 @@ class OnboardingRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const OnboardingPage();
+    },
+  );
+}
+
+/// generated route for
+/// [SignupPageLoader]
+class SignupRouteLoader extends PageRouteInfo<void> {
+  const SignupRouteLoader({List<PageRouteInfo>? children})
+    : super(SignupRouteLoader.name, initialChildren: children);
+
+  static const String name = 'SignupRouteLoader';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SignupPageLoader();
     },
   );
 }

@@ -7,5 +7,5 @@ part 'router.gr.dart';
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   @override
-  List<AutoRoute> get routes => [...coreRoutes, ...onboardingRoutes, ...authRoutes];
+  List<AutoRoute> get routes => [...coreRoutes, ...onboardingRoutes, ...authRoutes, ...homeRoutes];
 }
