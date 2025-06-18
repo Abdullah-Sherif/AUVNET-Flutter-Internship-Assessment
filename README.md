@@ -46,6 +46,25 @@ flutter build ios --release
 
 ## Project Structure
 
-- `lib/` - Main Dart source code.
-- `assets/` - Static assets (images, etc).
-- `android/`, `ios/`, `web/`, `linux/`, `macos/`, `windows/` - Platform-specific code.
+The project follows a modular and clean architecture approach:
+
+- `lib/core/`  
+  Contains core files and utilities shared across multiple features, such as routing, extensions, styles, and common widgets.
+
+- `lib/features/`  
+  Contains all feature modules. Each feature is self-contained and follows clean architecture principles:
+    - `data/` – Data sources and repositories (e.g., API, Firebase, local storage).
+    - `domain/` – Business logic and entities (pure Dart classes).
+    - `presentation/` – UI code, including states (BLoC/Cubit), pages, and widgets.
+
+- `assets/`  
+  Static assets such as images and SVGs.
+
+- Platform folders:  
+  - `android/`, `ios/`, `web/`, `linux/`, `macos/`, `windows/` – Platform-specific code and configuration.
+
+Other notable files:
+- `pubspec.yaml` – Project dependencies and asset declarations.
+- `README.md` – Project documentation (this file).
+
+This structure encourages separation of concerns, scalability, and maintainability.
