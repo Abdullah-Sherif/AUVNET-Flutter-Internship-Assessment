@@ -18,7 +18,7 @@ class AppListeners extends StatelessWidget {
             final newRoute = switch (state) {
               AuthAuthenticated() => const HomeWrapperRoute(),
               AuthUnauthenticated() => () {
-                if (state.onboarded) {
+                if (state.onboarded || context.read<OnboardingBloc>().state is OnboardingCompleted) {
                   return const LoginRouteLoader();
                 }
                 return const OnboardingRoute();
