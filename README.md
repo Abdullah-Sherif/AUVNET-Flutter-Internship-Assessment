@@ -16,7 +16,7 @@ This project is built with [Flutter](https://flutter.dev/). To run and develop t
 
 1. Clone this repository:
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/Abdullah-Sherif/AUVNET-Flutter-Internship-Assessment.git
     cd auvnet_internship_assessment
     ```
 
